@@ -22,15 +22,15 @@ def classification_rule(text):
         
         
         
-        template
+        template=template_to_use[0]
     elif re.search('sijil kelahiran', text.lower()):
-        aasd
+        template=template_to_use[1]
     elif re.search('repot polis', text.lower()):
-        saas
+        template=template_to_use[2]
     elif re.search('kad pengenalan', text.lower()):
-        sasas
+        template=template_to_use[3]
     elif re.search('surat perakuan nikah', text.lower()):
-        sasas
+        template=template_to_use[4]
     else:
         dassda
 
@@ -42,6 +42,11 @@ def classification_rule(text):
 app = Flask(__name__)
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))#current directory
+no_file={'D':0,'B':0,'P':0,'I':0,'M':0,'U':0}
+template_to_use=['death_certh.html','birth_cert.html','police_report.html','ic.html',
+                 'marriage_cert.html','unknown.html']
+
+
 
 @app.route("/")
 def index():
@@ -53,9 +58,7 @@ def upload():
 
     
         
-    no_file={'D':0,'B':0,'P':0,'I':0,'M':0,'U':0}
-    template_to_use=['death_certh.html','birth_cert.html','police_report.html','ic.html',
-                     'marriage_cert.html','unknown.html']
+
     
     
     for upload in request.files.getlist("file"):
