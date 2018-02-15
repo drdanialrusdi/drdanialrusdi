@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload</title>
+  <style>body {background-color: yellow;}
+         h1 {display: inline-block; text-align: center;}
+  </style>
+</head>
+
+<body>
+	<h1>File Uploader</h1>
+	<form id="upload-form" action="{{ url_for('upload')}}" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" accept="image/*" multiple>
+		<input type="submit" value="send">
+	</form>
+	
+	<h3> Please give your file unique name. Since same name will overwrite existing file. </h3>
+	
+</body>
+</html>
