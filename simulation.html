@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+      <center><h style="font-size:500%;"> Simulation </font></h></center>
+      <center><p style="font-size:70%;">This simulation is use to suggest the number of headcount to avoid the abundant. </p><center>
+      <center><p style="font-size:70%;">It based on assumption that no agent leave the place or make outbound call. </p><center>
+      <center><p style="font-size:70%;">Therefore, it suggest the minimum number of head count to achieve certain abandon rate.</p><center>
+      <form action="/action_page.php" align="left">
+          Number of simulation:<br>
+          <input type="text" name="simulation_number">
+          <br>
+          Number of offered call:<br>
+          <input type="text" name="offered_call">
+          <br>
+          Max number of agent: <br>
+          <input type="text" name="number_agent">
+          <br>
+          <div>
+    <input type="radio" name="model" value="EFTB" checked align="left">EFTB<br>
+    <input type="radio" name="model" value="EGTB">EGTB<br>
+    <input type="radio" name="model" value="EGIB">EGIB<br>
+    <input type="radio" name="model" value="ELIB">ELIB<br>
+    <input type="radio" name="model" value="ELBB">ELBB<br>
+    <input type="radio" name="model" value="EGBB">EGBB
+          <div>
+          <br><br>
+          <input type="submit" value="Submit">
+          
+      </form> 
+  <table>
+		<tbody>
+		<tr>
+			<th>Number of Agent</th>
+			<th>Percentage abandon rate</th>
+		</tr>
+		{% for key, value in data.items() %}
+		<tr>
+			<th>{{ key }}</th>
+			<th>{{ value[0] }}</th>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+    
+  </body>
+
+
+</html>
+
